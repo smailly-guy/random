@@ -25,23 +25,11 @@ internal class Program
             .RuleFor(u => u.number, f => f.Phone.PhoneNumber());
 
             var users = MyUserfaker.Generate(10);
-        // Pseudocode:
-        // 1. Open a StreamWriter for the target file (e.g., "users.txt").
-        // 2. Iterate through the filtered users.
-        // 3. For each user, write their full info to the file.
-        // 4. Close the StreamWriter after writing all users.
 
-
-        // Implementation:
-
-        //foreach (var user in users)
-        //{
-        //    Console.WriteLine(user.GetFullInfo());
-        //}
         var FileName = "users.txt";
       
 
-        using (StreamWriter sw = new StreamWriter(FileName, false)) // 'false' to overwrite file
+        using (StreamWriter sw = new StreamWriter(FileName, false)) 
         {
             foreach (var user in users)
             {
@@ -50,7 +38,7 @@ internal class Program
                 {
                     Console.WriteLine(user.GetFullInfo());
                     string userinfo = user.GetFullInfo();
-                    sw.WriteLine(userinfo); // Write each user's info as a line in the file
+                    sw.WriteLine(userinfo); 
                 }
             }
         }
